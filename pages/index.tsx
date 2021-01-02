@@ -18,7 +18,7 @@ export default function Home({ blogs }: { blogs: Blog[] }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {blogs.map(blog => (
+          {blogs.map((blog: Blog) => (
             <li className={utilStyles.listItem} key={blog.id}>
               <Link href={`/blogs/${blog.id}`}>
                 <a>{blog.title}</a>
@@ -27,11 +27,7 @@ export default function Home({ blogs }: { blogs: Blog[] }) {
               <small className={utilStyles.lightText}>
                 <div>作成日: <Date dateString={blog.createdAt} /></div>
                 <div>更新日: <Date dateString={blog.updatedAt} /></div>
-                {blog.tags.map((tag, index) => (
-                <li className={utilStyles.listItem} key={index}>
-                  {tag}
-                </li>
-              ))}
+                <div>カテゴリ: {blog.category.name}</div>
               </small>
             </li>
           ))}

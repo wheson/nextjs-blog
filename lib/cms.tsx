@@ -20,8 +20,18 @@ export interface Blog {
   publishedAt: string
   revisedAt: string
   title: string
-  tags: string[]
+  category: Category
   body: string
+}
+
+// カテゴリ型
+export interface Category {
+  id: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  revisedAt: string
+  name: string
 }
 
 /**

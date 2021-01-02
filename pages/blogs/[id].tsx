@@ -15,6 +15,7 @@ export default function BlogPage({ blog }: { blog: Blog }) {
         <div className={utilStyles.lightText}>
           <div>作成日: <Date dateString={blog.createdAt} /></div>
           <div>更新日: <Date dateString={blog.updatedAt} /></div>
+          <div>カテゴリ: {blog.category.name}</div>
         </div>
         <div dangerouslySetInnerHTML={{ __html: blog.body}} />
       </article>
