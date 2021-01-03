@@ -4,6 +4,7 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { Blogs, Blog, getAllBlogs } from '../lib/cms'
 import Date from '../components/date'
+import BlogCard from '../components/card'
 
 export default function Home({ blogs }: { blogs: Blog[] }) {
   return (
@@ -20,15 +21,7 @@ export default function Home({ blogs }: { blogs: Blog[] }) {
         <ul className={utilStyles.list}>
           {blogs.map((blog: Blog) => (
             <li className={utilStyles.listItem} key={blog.id}>
-              <Link href={`/blogs/${blog.id}`}>
-                <a>{blog.title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <div>作成日: <Date dateString={blog.createdAt} /></div>
-                <div>更新日: <Date dateString={blog.updatedAt} /></div>
-                <div>カテゴリ: {blog.category.name}</div>
-              </small>
+              <BlogCard id={blog.id} title={blog.title} category={blog.category.name} createdAt={blog.createdAt} />
             </li>
           ))}
         </ul>
